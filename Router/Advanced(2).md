@@ -43,3 +43,29 @@
       }
     }
 ```
+
+## 路由懒加载
+1. 
+```ecmascript 6
+    const Foo = resolve => {
+      // require.ensure 是 Webpack 的特殊语法，用来设置 code-split point
+      require.ensure(['./Foo.vue'], () => {
+        resolve(require('./Foo.vue'))
+      })
+    }
+```
+
+2. 
+```ecmascript 6
+    //使用 AMD 风格的 require
+    const Foo = resolve => require(['./Foo.vue'], resolve)
+```
+
+### 把组件按组分块
+有时候我们想把某个路由下的所有组件都打包在同个异步 chunk 中。只需要 给 chunk 命名，提供 require.ensure 第三个参数作为 chunk 的名称:
+```ecmascript 6
+    const Foo = r => require.ensure([], () => r(require('./Foo.vue')), 'group-foo')
+    const Bar = r => require.ensure([], () => r(require('./Bar.vue')), 'group-foo')
+    const Baz = r => require.ensure([], () => r(require('./Baz.vue')), 'group-foo')
+    //Webpack 将相同 chunk 下的所有异步模块打包到一个异步块里面 
+```
