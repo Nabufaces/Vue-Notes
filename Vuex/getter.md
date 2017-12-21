@@ -5,7 +5,7 @@
 
 ##### Getter 接受 state 作为其第一个参数：
 
-```vue
+```ecmascript 6
     const store = new Vuex.Store({
       state: {
         todos: [
@@ -24,7 +24,7 @@
 
 ##### 在组件中使用它：
 
-```vue
+```ecmascript 6
     computed: {
       doneTodosCount () {
         return this.$store.getters.doneTodos
@@ -34,7 +34,7 @@
 
 ##### 也可以通过让 getter 返回一个函数，来实现给 getter 传参。在你对 store 里的数组进行查询时非常有用。
 
-```vue
+```ecmascript 6
     getters: {
       // ...
       getTodoById: (state) => (id) => {
@@ -48,7 +48,7 @@
 ### mapGetters 辅助函数
 * ```mapGetters``` 辅助函数将 store 中的 getter 映射到局部计算属性：
 
-```vue
+```ecmascript 6
     import { mapGetters } from 'vuex'
     
     export default {

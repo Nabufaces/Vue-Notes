@@ -1,7 +1,7 @@
 ## Mutation
 * 更改 Vuex 的 store 中的状态的唯一方法是提交 mutation。
 
-```vue
+```ecmascript 6
     const store = new Vuex.Store({
       state: {
         count: 1
@@ -18,13 +18,13 @@
 
 ##### 要唤醒一个 ```mutation handler```，你需要以相应的 type 调用 ```store.commit``` 方法：
 
-```vue
+```ecmascript 6
     store.commit('increment')
 ```
 
 ### 提交载荷（Payload）
 
-```vue
+```ecmascript 6
     mutations: {
       increment (state, n) {
         state.count += n
@@ -35,7 +35,7 @@
 
 #### 对象风格的提交方式
 
-```vue
+```ecmascript 6
     store.commit({
       type: 'increment',
       amount: 10
@@ -44,7 +44,7 @@
 
 当使用对象风格的提交方式，整个对象都作为载荷传给 mutation 函数，因此 handler 保持不变：
 
-```vue
+```ecmascript 6
     mutations: {
       increment (state, payload) {
         state.count += payload.amount
@@ -57,7 +57,7 @@
 ### 在组件中提交 Mutation
 你可以在组件中使用 ```this.$store.commit('xxx')``` 提交 mutation，或者使用 ```mapMutations``` 辅助函数将组件中的 methods 映射为 ```store.commit``` 调用（需要在根节点注入 store）。
 
-```vue
+```ecmascript 6
     import { mapMutations } from 'vuex'
     
     export default {

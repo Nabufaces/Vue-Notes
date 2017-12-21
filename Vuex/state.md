@@ -12,7 +12,7 @@
 
 Vuex 通过 store 选项，提供了一种机制**将状态从根组件『注入』到每一个子组件中**：
 
-```vue
+```ecmascript 6
     const app = new Vue({
       el: '#app',
       // 把 store 对象提供给 “store” 选项，这可以把 store 的实例注入所有的子组件
@@ -28,7 +28,7 @@ Vuex 通过 store 选项，提供了一种机制**将状态从根组件『注入
 
 该 store 实例会注入到根组件下的所有子组件中，且子组件能通过 ```this.$store``` 访问到。让我们更新下 Counter 的实现：
 
-```vue
+```ecmascript 6
     const Counter = {
       template: `<div>{{ count }}</div>`,
       computed: {
@@ -43,7 +43,7 @@ Vuex 通过 store 选项，提供了一种机制**将状态从根组件『注入
 
 可以使用 ```mapState``` 辅助函数帮助我们生成计算属性，获取多个计算状态：
 
-```vue
+```ecmascript 6
     // 在单独构建的版本中辅助函数为 Vuex.mapState
     import { mapState } from 'vuex'
     
@@ -66,7 +66,7 @@ Vuex 通过 store 选项，提供了一种机制**将状态从根组件『注入
 
 当映射的计算属性的名称与 state 的子节点名称相同时，我们也可以给 ```mapState``` 传一个字符串数组。
 
-```vue
+```ecmascript 6
     computed: mapState([
       // 映射 this.count 为 store.state.count
       'count'
@@ -78,7 +78,7 @@ Vuex 通过 store 选项，提供了一种机制**将状态从根组件『注入
 mapState 函数返回的是一个对象。我们如何将它与局部计算属性混合使用呢？通常，我们需要使用一个工具函数将多个对象合并为一个，以使我们可以将最终对象传给 ```computed``` 属性。但是自从有
 了对象展开运算符，我们可以极大地简化写法：
 
-```vue
+```ecmascript 6
     computed: {
       // 使用对象展开运算符将此对象混入到外部对象中
       ...mapState({
