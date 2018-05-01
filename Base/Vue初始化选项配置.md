@@ -19,7 +19,7 @@ Vue的计算属性（computed)的属性会自动加入Vue的实例中。所有 g
 
 实例：
 ```ecmascript 6
-    var vm = new Vue({
+    const vm = new Vue({
     data: { a: 1 },
     computed: {
       // 仅读取，值只须为函数
@@ -58,7 +58,7 @@ Vue的计算属性（computed)的属性会自动加入Vue的实例中。所有 g
 
 示例：
 ```ecmascript 6
-    var vm = new Vue({
+    const vm = new Vue({
       data: {
         a: 1,
         b: 2
@@ -87,7 +87,7 @@ string | HTMLElement
 在实例挂载之后， 元素可以用 vm.$el 访问。
 
 ```ecmascript 6
-var app = new Vue({         
-  el: '#app'
-});
+    const app = new Vue({         
+      el: '#app'
+    });
 ```
