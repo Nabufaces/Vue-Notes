@@ -50,7 +50,7 @@ const defineReactive = (obj, key) => {
         configurable: true,
         get() {
             // 调用依赖收集器中的addSub，用于收集当前属性与Watcher中的依赖关系
-            // 只有需要获取的属性，才会绑定Dep与Wathcer的关系
+            // 与渲染无关的值，并不会触发get，也就不会在依赖收集器中添加到监听(addSub方法不会触发）
             dep.depend();
             return val;
         },
