@@ -98,7 +98,7 @@
       actionA ({ commit }) {
         return new Promise((resolve, reject) => {
           setTimeout(() => {
-            commit('someMutation')
+            commit('someMutation');
             resolve()
           }, 1000)
         })

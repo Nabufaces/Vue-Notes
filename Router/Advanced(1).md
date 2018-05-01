@@ -6,7 +6,7 @@
 
 * 使用 router.beforeEach 注册一个全局的 before 钩子：
 ````ecmascript 6
-    const router = new VueRouter({ ... })
+    const router = new VueRouter({ ... });
     
     router.beforeEach((to, from, next) => {
       // ...
